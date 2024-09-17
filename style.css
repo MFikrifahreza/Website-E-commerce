@@ -1106,4 +1106,9 @@ footer .copyright {
   #contact-details .map {
     width: 100%;
   }
+
+#form-details form {
+    width: 100%;
+    margin-bottom: 30px;
+}
 }
