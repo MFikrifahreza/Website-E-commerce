@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <script>
+     <script>
         // Cek status login saat halaman dimuat
         window.onload = function() {
             const loggedIn = localStorage.getItem("loggedIn");
@@ -133,4 +133,15 @@
                 // Validasi login sederhana
                 if (username === "user" && password === "user") {
                     // Simulasi login berhasil
-                    localStorage.setItem("loggedIn", "true"); 
+                    localStorage.setItem("loggedIn", "true");
+                    window.location.href = "index.html"; // Arahkan ke halaman utama
+                } else {
+                    // Tampilkan pesan kesalahan jika login gagal
+                    document.getElementById("error-message").textContent = "Username atau password salah!";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
