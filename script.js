@@ -14,6 +14,13 @@ document
     }
   });
 
+window.onload = function() {
+  const loggedIn = localStorage.getItem("loggedIn");
+  if (!loggedIn && window.location.pathname !== '/login.html') {
+    window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
+  }
+};
+
 const bar = document.getElementById("bar");
 const close = document.getElementById("close");
 const nav = document.getElementById("navbar");
@@ -27,4 +34,9 @@ if (close) {
   close.addEventListener("click", () => {
     nav.classList.remove("active");
   });
+}
+
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
 }
