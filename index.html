@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="img/dw.png" type="image/x-icon" />
-      <script src="script.js"></script>
+     
   </head>
 
   <body>
@@ -464,6 +464,8 @@
       </div>
     </footer>
 
+     <script src="script.js"></script>
+
     <script>
     window.onload = function() {
         const loggedIn = localStorage.getItem("loggedIn");
@@ -471,6 +473,10 @@
             window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
         }
     };
+
+       function logout() {
+        localStorage.removeItem("loggedIn"); // Hapus status login
+    }
 </script>
     
 
