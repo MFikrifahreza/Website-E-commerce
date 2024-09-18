@@ -123,38 +123,67 @@
       </div>
     </div>
 
-    <script>
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+   <script>
+        // Cek status login saat halaman dimuat
+        window.onload = function() {
+            const loggedIn = localStorage.getItem("loggedIn");
+            console.log("Status Login: ", loggedIn); // Debugging
 
-          // Ambil data dari formulir
-          var username = document.getElementById("username").value;
-          var password = document.getElementById("password").value;
+            // Cek jika pengguna sudah login dan mencoba mengakses halaman login
+            if (loggedIn) {
+                window.location.href = "index.html"; // Arahkan ke halaman utama jika sudah login
+            }
+        };
 
-          // Validasi login sederhana
-          // Di sini Anda dapat menambahkan logika untuk memeriksa pengguna dari database
-          if (username === "user" && password === "user") {
-            // Simulasi login berhasil
-            window.location.href = "index.html"; // Arahkan ke halaman e-commerce
-          } else {
-            // Tampilkan pesan kesalahan
-            document.getElementById("error-message").textContent =
-              "Invalid username or password";
-          }
+        // Menangani pengiriman form login
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // Ambil data dari formulir
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                // Validasi login sederhana
+                if (username === "user" && password === "user") {
+                    // Simulasi login berhasil
+                    localStorage.setItem("loggedIn", "true"); // Simpan status login
+                    window.location.href = "index.html"; // Arahkan ke halaman e-commerce
+                } else {
+                    // Tampilkan pesan kesalahan
+                    document.getElementById("error-message").textContent =
+                        "Invalid username or password";
+                }
+            });
         });
-
-      window.onload = function() {
-  const loggedIn = localStorage.getItem("loggedIn");
-  console.log("Status Login: ", loggedIn); // Debugging
-
-  // Cek jika pengguna tidak login dan mencoba mengakses halaman bukan login
-  if (!loggedIn && window.location.pathname !== '/login.html') {
-    window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
-  }
-};
-      
     </script>
+</head>
+<body>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <div id="error-message"></div>
+    </form>
+</body>
+</html>
+Penjelasan Kode
+Pemeriksaan Status Login: Ketika halaman login dimuat, kode memeriksa apakah ada nilai di localStorage untuk loggedIn. Jika ada, pengguna akan diarahkan ke index.html.
+
+Menangani Pengiriman Form: Ketika form login disubmit, kode mencegah pengiriman default dan memeriksa username dan password. Jika login berhasil, status login disimpan di localStorage, dan pengguna diarahkan ke index.html.
+
+Pastikan Halaman Lain Juga Diperiksa
+Di halaman index.html, pastikan ada pemeriksaan serupa untuk mengarahkan pengguna kembali ke halaman login jika mereka tidak login:
+
+html
+Salin kode
+<script>
+    window.onload = function() {
+        const loggedIn = localStorage.getItem("loggedIn");
+        if (!loggedIn) {
+            window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
+        }
+    };
+</script>
   </body>
 </html>
