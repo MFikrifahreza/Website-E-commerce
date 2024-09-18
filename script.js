@@ -16,10 +16,11 @@ if (close) {
 
 // Cek status login saat halaman dimuat
 window.onload = function() {
-  const loggedIn = localStorage.getItem("loggedIn");
-  if (!loggedIn && window.location.pathname !== '/login.html') {
-    window.location.href = "login.html"; // Arahkan ke login jika belum login
-  }
+    const loggedIn = localStorage.getItem("loggedIn");
+    console.log("Logged In Status: ", loggedIn); // Debugging
+    if (!loggedIn) {
+        window.location.href = "login.html"; // Arahkan ke login jika belum login
+    }
 };
 
 // Menangani pengiriman form login
