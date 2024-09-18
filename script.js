@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// Fungsi untuk logout
 function logout() {
-  localStorage.removeItem("loggedIn");
-  window.location.href = "login.html"; // Arahkan ke halaman login setelah logout
+    console.log("Logging out..."); // Debugging
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html"; // Arahkan ke halaman login setelah logout
 }
 
 
