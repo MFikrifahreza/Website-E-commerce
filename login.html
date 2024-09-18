@@ -144,6 +144,17 @@
               "Invalid username or password";
           }
         });
+
+      window.onload = function() {
+  const loggedIn = localStorage.getItem("loggedIn");
+  console.log("Status Login: ", loggedIn); // Debugging
+
+  // Cek jika pengguna tidak login dan mencoba mengakses halaman bukan login
+  if (!loggedIn && window.location.pathname !== '/login.html') {
+    window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
+  }
+};
+      
     </script>
   </body>
 </html>
