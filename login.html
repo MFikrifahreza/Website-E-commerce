@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - My E-Commerce Site</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .login-form {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .login-form h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      .input-group {
+        margin-bottom: 1rem;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .input-group input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.25);
+      }
+
+      button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .message {
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        color: #555;
+      }
+
+      .message a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .message a:hover {
+        text-decoration: underline;
+      }
+
+      .error-message {
+        color: #ff0000;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit">Login</button>
+          <p class="message">
+            Not registered? <a href="#">Create an account</a>
+          </p>
+          <p id="error-message" class="error-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Ambil data dari formulir
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          // Validasi login sederhana
+          // Di sini Anda dapat menambahkan logika untuk memeriksa pengguna dari database
+          if (username === "user" && password === "user") {
+            // Simulasi login berhasil
+            window.location.href = "index.html"; // Arahkan ke halaman e-commerce
+          } else {
+            // Tampilkan pesan kesalahan
+            document.getElementById("error-message").textContent =
+              "Invalid username or password";
+          }
+        });
+    </script>
+  </body>
+</html>
