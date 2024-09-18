@@ -1,3 +1,19 @@
+// Menangani navigasi
+const bar = document.getElementById("bar");
+const close = document.getElementById("close");
+const nav = document.getElementById("navbar");
+
+if (bar) {
+  bar.addEventListener("click", () => {
+    nav.classList.add("active");
+  });
+}
+if (close) {
+  close.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+}
+
 // Cek status login saat halaman dimuat
 window.onload = function() {
   const loggedIn = localStorage.getItem("loggedIn");
@@ -33,18 +49,4 @@ function logout() {
   window.location.href = "login.html"; // Arahkan ke halaman login setelah logout
 }
 
-// Menangani navigasi
-const bar = document.getElementById("bar");
-const close = document.getElementById("close");
-const nav = document.getElementById("navbar");
 
-if (bar) {
-  bar.addEventListener("click", () => {
-    nav.classList.add("active");
-  });
-}
-if (close) {
-  close.addEventListener("click", () => {
-    nav.classList.remove("active");
-  });
-}
