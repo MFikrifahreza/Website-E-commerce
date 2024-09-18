@@ -16,10 +16,11 @@ document
 
 window.onload = function() {
   const loggedIn = localStorage.getItem("loggedIn");
-  if (!loggedIn && window.location.pathname !== '/login.html') {
-    window.location.href = "login.html"; // Ganti dengan URL halaman login Anda
+  if (!loggedIn) {
+    window.location.href = "login.html"; // Arahkan ke login jika belum login
   }
 };
+
 
 const bar = document.getElementById("bar");
 const close = document.getElementById("close");
